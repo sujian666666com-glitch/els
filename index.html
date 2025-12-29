@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="tetris.css">
+</head>
+<body>
+    <div id="app">
+        <div id="menu">
+            <h1>俄罗斯方块</h1>
+            <h2>选择难度</h2>
+            <div id="highScores">
+                <div class="score-item"><span class="difficulty-label">简单:</span> <span id="easyScore">0</span></div>
+                <div class="score-item"><span class="difficulty-label">中等:</span> <span id="mediumScore">0</span></div>
+                <div class="score-item"><span class="difficulty-label">困难:</span> <span id="hardScore">0</span></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-easy" onclick="startGame('easy')">简单</button>
+                <button class="btn btn-medium" onclick="startGame('medium')">中等</button>
+                <button class="btn btn-hard" onclick="startGame('hard')">困难</button>
+            </div>
+        </div>
+
+        <div id="game" style="display: none;">
+            <div class="game-container">
+                <canvas id="gameCanvas" width="300" height="600"></canvas>
+                <div class="sidebar">
+                    <div class="info-box">
+                        <div class="info-label">得分</div>
+                        <div class="info-value" id="score">0</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">最高</div>
+                        <div class="info-value" id="highScore">0</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">难度</div>
+                        <div class="info-value" id="difficulty">中等</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">下一个</div>
+                        <canvas id="nextCanvas" width="120" height="120"></canvas>
+                    </div>
+                    <div class="controls">
+                        <div class="control-item">← → 移动</div>
+                        <div class="control-item">↑ 旋转</div>
+                        <div class="control-item">↓ 加速</div>
+                        <div class="control-item">空格 落下</div>
+                        <div class="control-item">ESC 菜单</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOver" style="display: none;">
+            <h2 id="gameOverTitle">游戏结束!</h2>
+            <p id="newRecord" style="display: none; color: yellow; font-size: 24px;">新纪录!</p>
+            <p>最终得分: <span id="finalScore">0</span></p>
+            <div class="buttons">
+                <button class="btn btn-restart" onclick="restartGame()">重新开始</button>
+                <button class="btn btn-menu" onclick="showMenu()">返回菜单</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="tetris.js"></script>
+</body>
+</html>

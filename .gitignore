@@ -1,0 +1,16 @@
+# Python files
+tetris.py
+high_scores.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
